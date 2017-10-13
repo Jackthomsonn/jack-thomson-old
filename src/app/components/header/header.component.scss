@@ -1,0 +1,26 @@
+@import "../../../_grid";
+@import "../../../_variables";
+
+:host {
+  background: #FFF;
+  box-shadow: $box-shadow;
+  height: 50px;
+  width: 100vw;
+  display: block;
+
+  & > .header {
+    @extend .container;
+    height: 100%;
+
+    & > .logo {
+      background: $primary-color;
+      width: 50px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFF;
+      font-size: 2.4em;
+    }
+  }
+}
