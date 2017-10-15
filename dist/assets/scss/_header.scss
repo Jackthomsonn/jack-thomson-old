@@ -1,0 +1,42 @@
+@import "./_maps";
+@import "./_buttons";
+
+.header {
+  background: map-get($theme, "primary") url('../../../assets/images/bg.png') repeat;
+  box-shadow: map-get($theme, "box-shadow");
+  width: 100vw;
+  display: block;
+  flex-flow: column wrap;
+  box-shadow: map-get($theme, "box-shadow");
+  height: 75vh;
+  padding: 2em;
+  margin-top: -10vh;
+
+  & > .header_content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 5vh;
+
+    & > h1 {
+      width: 75vw;
+      text-align: center;
+      color: #FFF;
+      font-weight: map-get($theme, "font-weight");
+    }
+
+    & > .actions {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5em;
+
+      & > button, & > a > button {
+        @extend .header-button;
+      }
+    }
+  }
+}

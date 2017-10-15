@@ -1,0 +1,18 @@
+.label {
+  padding: 12px 20px;
+  width: 12em;
+  border: none;
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #FFF;
+
+  &.personal {
+    background: #B1DDF1;
+  }
+  &.codepen {
+    background: #68C3D4;
+  }
+  &.commercial {
+    background: #4F5D75;
+  }
+}

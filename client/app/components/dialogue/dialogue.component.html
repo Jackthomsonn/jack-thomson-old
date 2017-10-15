@@ -1,0 +1,7 @@
+<div class='dialogue' *ngIf="showDialogue">
+  <h1>Oh no there was an error!</h1>
+  <p>{{ reason }}</p>
+  <div class='actions'>
+    <button (click)="closeDialogue()">Dismiss</button>
+  </div>
+</div>

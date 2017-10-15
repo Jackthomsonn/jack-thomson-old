@@ -1,0 +1,16 @@
+@import "../../../assets/scss/_grid";
+@import "../../../assets/scss/_card";
+
+:host {
+  
+  & > section {
+    
+    & > .grid {
+      @extend .grid;
+
+      & > .card {
+        @extend .card;
+      }
+    }
+  }
+}

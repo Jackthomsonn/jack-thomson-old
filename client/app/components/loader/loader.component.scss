@@ -1,0 +1,23 @@
+@import "../../../assets/scss/_maps";
+
+:host {
+
+  & > .loader {
+    background: darken(map-get($theme, "primary"), 20%);
+    width: 100vw;
+    height: 7px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(-100vw);
+    animation: loader 2s ease-in-out infinite forwards;
+  }
+
+  @keyframes loader {
+    to {
+      transform: translateX(100%);
+    }
+  }
+}

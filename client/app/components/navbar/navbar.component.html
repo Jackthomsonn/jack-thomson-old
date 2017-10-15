@@ -1,0 +1,7 @@
+<nav>
+  <li class='logo' [routerLink]="navItems[0].state">JT</li>
+  <li *ngFor="let navItem of navItems"
+      [routerLink]="navItem.state"
+      routerLinkActive="active">{{ navItem.name }}
+  </li>
+</nav>

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+
+$theme: (
+  "primary" : #758ECD,
+  "secondary" : #FFF,
+  "tertiary" : darken(#758ECD, 10%),
+  "font-size" : 12px,
+  "base-colour" : #888,
+  "font-stack" : ('Nunito', sans-serif),
+  "font-weight" : 300,
+  "box-shadow" : 0 2px 10px rgba(0, 0, 0, .1),
+  "radius" : 50px
+);
+
+$form: (
+  "border-color" : #EEE,
+  "padding" : 2em,
+  "option" : #FFF,
+  "option-hover" : #EEE
+);
+
+$grid: (
+  "columns" : 12,
+  "row-size" : 100%,
+  "flex-flow" : row wrap,
+  "justify-content" : center,
+  "align-items" : center,
+  "spacing" : 2%,
+  "margin" : 2em
+);

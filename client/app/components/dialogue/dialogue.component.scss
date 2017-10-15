@@ -1,0 +1,38 @@
+@import "../../../assets/scss/_grid";
+@import "../../../assets/scss/_buttons";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+
+  & > .dialogue {
+    box-shadow: map-get($theme, "box-shadow");
+    background: #FFF;
+    width: 40em;
+    height: 20em;
+    padding: 2em;
+
+    & > h1 {
+      color: map-get($theme, "primary");
+    }
+
+    & > p {
+      color: map-get($theme, "base-colour");
+      margin-top: 1em;
+      font-size: 1.2em;
+    }
+
+    & > .actions {
+      display: flex;
+      height: 10em;
+      align-items: flex-end;
+      & > button {
+        @extend .card-button;
+      }
+    }
+  }
+}

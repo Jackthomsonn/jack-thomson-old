@@ -1,0 +1,52 @@
+<section class='container'>
+  <form #adminForm="ngForm">
+    <div class='flex-6'>
+      <label>Project title*</label>
+      <input type='text' [(ngModel)]="project.title" name='title' required />
+    </div>
+
+    <div class='flex-6'>
+      <label>Project information*</label>
+      <textarea [(ngModel)]="project.information" name='information' required></textarea>
+    </div>
+
+    <div class='flex-6'>
+      <label>More information*</label>
+      <textarea [(ngModel)]="project.moreInformation" name='moreInformation' required></textarea>
+    </div>
+
+    <div class='flex-6'>
+      <label>Label*</label>
+      <input list='labels' [(ngModel)]="project.label" name='label' required />
+
+      <datalist id="labels">
+        <option value="Codepen">
+        <option value="Commercial">
+        <option value="Personal">
+      </datalist>
+    </div>
+    
+    <div class='flex-6'>
+      <label>Technologies used*</label>
+      <select multiple (change)="setSelectedTechnologies($event)" required>
+        <option *ngFor="let technology of technologies">{{ technology }}</option>
+      </select>
+    </div>
+    
+    <div class='flex-6'>
+      <label>Image (1200 * 600)*</label>
+      <input type='file' name='image' accept="image/*" (change)="handleImageConversion($event)" required />
+    </div>
+
+    <div class='flex-6'>
+      <label>Project URL*</label>
+      <input type='text' name='url' [(ngModel)]="project.url" required />
+    </div>
+
+    <div class='flex-6'></div>
+
+    <div class='flex-1 no-grow'>
+      <button (click)="addNewProject()" [disabled]="!adminForm.form.valid">Add project</button>
+    </div>
+  </form>
+</section>

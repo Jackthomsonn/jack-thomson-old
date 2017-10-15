@@ -1,0 +1,8 @@
+@import "../../../assets/scss/_grid";
+
+:host {
+  & > section > div > div > p {
+    color: map-get($theme, "base-colour");
+    font-size: 1em;
+  }
+}

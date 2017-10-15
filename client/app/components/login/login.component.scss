@@ -1,0 +1,18 @@
+@import '../../../assets/scss/_form';
+@import '../../../assets/scss/_buttons';
+
+:host {
+
+  & > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    & > form {
+      @extend form;
+      padding: 2em;
+      width: 40em;
+    }
+  }
+}

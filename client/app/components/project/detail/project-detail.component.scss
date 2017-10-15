@@ -1,0 +1,33 @@
+@import "../../../../assets/scss/_grid";
+@import "../../../../assets/scss/_card";
+
+:host {
+  
+  & > section {
+    
+    & > .grid {
+      @extend .grid;
+
+      & > div > button {
+        display: flex;
+        align-items: center;
+        border: none;
+        background: none;
+        text-transform: uppercase;
+        color: map-get($theme, "primary");
+        padding: .3em .3em .3em 0;
+        border-radius: 3px;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+          background: lighten(map-get($theme, "primary"), 32%);
+        }
+      }
+
+      & > .detail-card {
+        @extend .detail-card;
+      }
+    }
+  }
+}

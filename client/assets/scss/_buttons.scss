@@ -1,0 +1,40 @@
+.header-button {
+  border-radius: map-get($theme, "radius");
+  background: rgba(255, 255, 255, 1);
+  color: map-get($theme, "primary");
+  border: none;
+  padding: 1em 1.4em;
+  margin: 1em 1em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.card-button {
+  border: 1px solid map-get($theme, "primary");
+  color: map-get($theme, "primary");
+  padding: 8px 20px;
+  height: 3.2em;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border-radius: map-get($theme, "radius");
+  background: #FFF;
+  transition: all ease-in-out 100ms;
+  outline: none;
+
+  &:hover {
+    background: map-get($theme, "primary");
+    color: map-get($theme, "secondary");
+  }
+
+  &.active {
+    background: map-get($theme, "primary");
+    color: map-get($theme, "secondary");
+  }
+}
+
+.detail-card-button {
+  @extend .card-button;
+  text-align: left;
+}

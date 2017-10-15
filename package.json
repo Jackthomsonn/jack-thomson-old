@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server/index",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,8 +23,19 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.1.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.6.8",
+    "ngx-cookie-service": "^1.0.9",
+    "node-restful": "^0.2.6",
     "rxjs": "^5.4.2",
+    "typings": "^2.1.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

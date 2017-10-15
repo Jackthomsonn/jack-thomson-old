@@ -1,0 +1,12 @@
+@import '../../../assets/scss/_form';
+@import '../../../assets/scss/_buttons';
+
+:host {
+  
+  & > section {
+    
+    & > form {
+      @extend form;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<section class='container'>
+  <div class='grid'>
+    <div class='flex-3 card' *ngFor="let project of projects">
+      <div class='card_image'>
+        <img src="{{project.imageLocation}}" />
+      </div>
+      <div class='card_body'>
+        <h1>{{ project.title }}</h1>
+        <label class='{{getClassName(project.label)}}'>{{ project.label }}</label>
+        <p>{{ project.information }}</p>
+      </div>
+      <div class='card_actions'>
+        <button class="active" routerLink="/project/{{project._id}}">Find out more</button>
+        <a target="_blank" href="{{project.url}}"><button>View project</button></a>
+      </div>
+    </div>
+  </div>
+</section>

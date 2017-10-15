@@ -1,0 +1,56 @@
+@import "./_maps";
+@import './_grid';
+@import './_buttons';
+
+form {
+  @extend .grid;
+  background: #FFF;
+  box-shadow: map-get($theme, "box-shadow");
+
+  & > div {
+    display: flex;
+    flex-flow: column wrap;
+    
+    label {
+      color: map-get($theme, "base-colour");
+      font-size: 1.2em;
+      font-weight: 300;
+      padding-bottom: .7em;
+    }
+    
+    input, textarea, select {
+      padding: 1em;
+      outline: none;
+      border: 1px solid map-get($form, "border-color");
+      width: 100%;
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+    
+    select {
+      outline: none;
+      
+      > option {
+        padding: .5em;
+        background: map-get($form, "option");
+
+        &:hover {
+          background: map-get($form, "option-hover");
+        }
+      }
+    }
+    
+    button {
+      @extend .card-button;
+
+      &:disabled, &:disabled:hover {
+        border: 1px dotted map-get($theme, "primary");
+        cursor: not-allowed;
+        background: #FFF;
+        color: map-get($theme, "primary");
+      }
+    }
+  }
+}
