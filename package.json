@@ -39,6 +39,9 @@
     "typings": "^2.1.1",
     "zone.js": "^0.8.14"
   },
+  "engines": {
+    "node": "6.11.4"
+  },
   "devDependencies": {
     "@angular/cli": "1.4.5",
     "@angular/compiler-cli": "^4.2.4",
