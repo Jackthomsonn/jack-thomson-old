@@ -33,9 +33,31 @@ export class AdminComponent {
     private loaderService: LoaderService) {
   }
 
+  private readFile(inputValue: IFiles) {
+    this.loaderService.shouldShow.next(true);
+    if (inputValue.files[0].type !== 'image/png') {
+      this.errorService.showError({
+        error: ' {"user_message":"Image must be in png format"} '
+      });
+
+      this.loaderService.shouldShow.next(false);
+    } else {
+      const file: File = inputValue.files[0];
+      const stream: FileReader = new FileReader();
+
+      stream.onloadend = () => {
+        this.project.image = stream.result;
+        this.loaderService.shouldShow.next(false);
+      };
+
+      stream.readAsDataURL(file);
+
+      this.loaderService.shouldShow.next(false);
+    }
+  }
+
   public addNewProject() {
     this.loaderService.shouldShow.next(true);
-
     this.projectService.addProject(this.project)
       .subscribe(() => {
         this.loaderService.shouldShow.next(false);
@@ -56,30 +78,6 @@ export class AdminComponent {
 
     for (let i = 0; i < selectedTechnologies.length; i++) {
       this.project.technologies.push(selectedTechnologies[i].value);
-    }
-  }
-
-  private readFile(inputValue: IFiles) {
-    this.loaderService.shouldShow.next(true);
-
-    if (inputValue.files[0].type !== 'image/png') {
-      this.errorService.showError({
-        error: ' {"user_message":"Image must be in png format"} '
-      });
-
-      this.loaderService.shouldShow.next(false);
-    } else {
-      const file: File = inputValue.files[0];
-      const stream: FileReader = new FileReader();
-
-      stream.onloadend = () => {
-        this.project.image = stream.result;
-        this.loaderService.shouldShow.next(false);
-      };
-
-      stream.readAsDataURL(file);
-
-      this.loaderService.shouldShow.next(false);
     }
   }
 }

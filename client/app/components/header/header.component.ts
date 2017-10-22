@@ -10,6 +10,4 @@ import { Subject } from 'rxjs/Subject';
 export class HeaderComponent {
   public title: string;
   public shouldShowActions: boolean;
-
-  constructor() { }
 }

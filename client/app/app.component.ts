@@ -1,6 +1,6 @@
 import { HeaderService } from './services/header/header.service';
 import { ProjectService } from './services/projects/project.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   public shouldShowHeader: boolean;
 
-  constructor(private headerService: HeaderService) {
-    this.headerService.showHeader.subscribe( (state) => {
+  constructor(private headerService: HeaderService) { }
+
+  public ngOnInit() {
+    this.headerService.showHeader.subscribe((state) => {
       this.shouldShowHeader = state;
     });
   }

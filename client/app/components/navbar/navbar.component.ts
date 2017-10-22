@@ -1,5 +1,5 @@
 import { INavigation } from './../../interfaces/INavigation';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public title: string;
   public shouldShowActions: boolean;
   public navItems: Array<INavigation>;
 
-  constructor() {
+  public ngOnInit() {
     this.navItems = [
       {
         state: '',

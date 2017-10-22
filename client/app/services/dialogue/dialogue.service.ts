@@ -6,6 +6,4 @@ import { Injectable } from '@angular/core';
 export class DialogueService {
   public showDialogue: Subject<any> = new Subject();
   public reason: Subject<any> = new Subject();
-
-  constructor() { }
 }

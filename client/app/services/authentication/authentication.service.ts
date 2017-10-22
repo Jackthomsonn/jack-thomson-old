@@ -13,8 +13,7 @@ export class CheckAuthenticationService implements CanActivate {
     private router: Router,
     private http: HttpClient,
     private errorService: ErrorService,
-    private cookieService: CookieService) {
-  }
+    private cookieService: CookieService) { }
 
   public canActivate() {
     this.checkToken()

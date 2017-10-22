@@ -11,8 +11,21 @@ export class ErrorService {
   public showError(response: IErrorResponse) {
     let user_message = '';
 
-    const parsedError: IError = JSON.parse(response.error);
-    user_message = parsedError.user_message;
+    let parsedError: IError;
+
+    try {
+      JSON.parse(response.error);
+      parsedError = JSON.parse(response.error);
+
+      user_message = parsedError.user_message;
+    } catch (e) {
+      parsedError = {
+        user_message: response.error,
+        dev_message: 'An error occured',
+        status: 404
+      };
+    }
+
 
     this.dialogueService.reason.next(user_message);
 

@@ -60,16 +60,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AppComponent = (function () {
-    function AppComponent(headerService) {
-        var _this = this;
+let AppComponent = class AppComponent {
+    constructor(headerService) {
         this.headerService = headerService;
-        this.headerService.showHeader.subscribe(function (state) {
-            _this.shouldShowHeader = state;
+    }
+    ngOnInit() {
+        this.headerService.showHeader.subscribe((state) => {
+            this.shouldShowHeader = state;
         });
     }
-    return AppComponent;
-}());
+};
 AppComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
         selector: 'app-root',
@@ -147,11 +147,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 if (!Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_27" /* isDevMode */])()) {
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
-var AppModule = (function () {
-    function AppModule() {
-    }
-    return AppModule;
-}());
+let AppModule = class AppModule {
+};
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         declarations: [
@@ -241,8 +238,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AdminComponent = (function () {
-    function AdminComponent(projectService, errorService, loaderService) {
+let AdminComponent = class AdminComponent {
+    constructor(projectService, errorService, loaderService) {
         this.projectService = projectService;
         this.errorService = errorService;
         this.loaderService = loaderService;
@@ -257,29 +254,7 @@ var AdminComponent = (function () {
         };
         this.technologies = ['Angular', 'Node', 'Typescript', 'MongoDB', 'Socket.io', 'PHP', 'CSS3', 'HTML5', 'Javascript'];
     }
-    AdminComponent.prototype.addNewProject = function () {
-        var _this = this;
-        this.loaderService.shouldShow.next(true);
-        this.projectService.addProject(this.project)
-            .subscribe(function () {
-            _this.loaderService.shouldShow.next(false);
-        }, function (error) {
-            _this.errorService.showError(error);
-            _this.loaderService.shouldShow.next(false);
-        });
-    };
-    AdminComponent.prototype.handleImageConversion = function ($event) {
-        this.readFile($event.target);
-    };
-    AdminComponent.prototype.setSelectedTechnologies = function (selectedTechnology) {
-        var selectedTechnologies = selectedTechnology.target.selectedOptions;
-        this.project.technologies = [];
-        for (var i = 0; i < selectedTechnologies.length; i++) {
-            this.project.technologies.push(selectedTechnologies[i].value);
-        }
-    };
-    AdminComponent.prototype.readFile = function (inputValue) {
-        var _this = this;
+    readFile(inputValue) {
         this.loaderService.shouldShow.next(true);
         if (inputValue.files[0].type !== 'image/png') {
             this.errorService.showError({
@@ -288,18 +263,37 @@ var AdminComponent = (function () {
             this.loaderService.shouldShow.next(false);
         }
         else {
-            var file = inputValue.files[0];
-            var stream_1 = new FileReader();
-            stream_1.onloadend = function () {
-                _this.project.image = stream_1.result;
-                _this.loaderService.shouldShow.next(false);
+            const file = inputValue.files[0];
+            const stream = new FileReader();
+            stream.onloadend = () => {
+                this.project.image = stream.result;
+                this.loaderService.shouldShow.next(false);
             };
-            stream_1.readAsDataURL(file);
+            stream.readAsDataURL(file);
             this.loaderService.shouldShow.next(false);
         }
-    };
-    return AdminComponent;
-}());
+    }
+    addNewProject() {
+        this.loaderService.shouldShow.next(true);
+        this.projectService.addProject(this.project)
+            .subscribe(() => {
+            this.loaderService.shouldShow.next(false);
+        }, (error) => {
+            this.errorService.showError(error);
+            this.loaderService.shouldShow.next(false);
+        });
+    }
+    handleImageConversion($event) {
+        this.readFile($event.target);
+    }
+    setSelectedTechnologies(selectedTechnology) {
+        const selectedTechnologies = selectedTechnology.target.selectedOptions;
+        this.project.technologies = [];
+        for (let i = 0; i < selectedTechnologies.length; i++) {
+            this.project.technologies.push(selectedTechnologies[i].value);
+        }
+    }
+};
 AdminComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["o" /* Component */])({
         selector: 'app-admin',
@@ -358,22 +352,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var DialogueComponent = (function () {
-    function DialogueComponent(dialogueService) {
-        var _this = this;
+let DialogueComponent = class DialogueComponent {
+    constructor(dialogueService) {
         this.dialogueService = dialogueService;
-        this.dialogueService.showDialogue.subscribe(function (shouldShow) {
-            _this.showDialogue = shouldShow;
+    }
+    closeDialogue() {
+        this.showDialogue = !this.showDialogue;
+    }
+    ngOnInit() {
+        this.dialogueService.showDialogue.subscribe((shouldShow) => {
+            this.showDialogue = shouldShow;
         });
-        this.dialogueService.reason.subscribe(function (reason) {
-            _this.reason = reason;
+        this.dialogueService.reason.subscribe((reason) => {
+            this.reason = reason;
         });
     }
-    DialogueComponent.prototype.closeDialogue = function () {
-        this.showDialogue = !this.showDialogue;
-    };
-    return DialogueComponent;
-}());
+};
 DialogueComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
         selector: 'app-dialogue',
@@ -425,22 +419,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-var FooterComponent = (function () {
-    function FooterComponent() {
-    }
-    return FooterComponent;
-}());
+let FooterComponent = class FooterComponent {
+};
 FooterComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-footer',
         template: __webpack_require__("../../../../../client/app/components/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/footer/footer.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], FooterComponent);
 
 //# sourceMappingURL=footer.component.js.map
@@ -484,22 +471,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-    }
-    return HeaderComponent;
-}());
+let HeaderComponent = class HeaderComponent {
+};
 HeaderComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-header',
         template: __webpack_require__("../../../../../client/app/components/header/header.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/header/header.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], HeaderComponent);
 
 //# sourceMappingURL=header.component.js.map
@@ -549,16 +529,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var LoaderComponent = (function () {
-    function LoaderComponent(loaderService) {
-        var _this = this;
+let LoaderComponent = class LoaderComponent {
+    constructor(loaderService) {
         this.loaderService = loaderService;
-        this.loaderService.shouldShow.subscribe(function (shouldShow) {
-            _this.shouldShowLoader = shouldShow;
+    }
+    ngOnInit() {
+        this.loaderService.shouldShow.subscribe((shouldShow) => {
+            this.shouldShowLoader = shouldShow;
         });
     }
-    return LoaderComponent;
-}());
+};
 LoaderComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
         selector: 'app-loader',
@@ -622,30 +602,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginComponent = (function () {
-    function LoginComponent(authenticationService, router, errorService, loaderService) {
+let LoginComponent = class LoginComponent {
+    constructor(authenticationService, router, errorService, loaderService) {
         this.authenticationService = authenticationService;
         this.router = router;
         this.errorService = errorService;
         this.loaderService = loaderService;
     }
-    LoginComponent.prototype.login = function () {
-        var _this = this;
+    login() {
         this.loaderService.shouldShow.next(true);
         this.authenticationService.login({
             username: this.username,
             password: this.password
-        }).subscribe(function () {
-            _this.router.navigate(['admin']);
-            _this.loaderService.shouldShow.next(false);
-        }, function (error) {
-            _this.errorService.showError(error);
-            _this.router.navigate(['login']);
-            _this.loaderService.shouldShow.next(false);
+        }).subscribe(() => {
+            this.router.navigate(['admin']);
+            this.loaderService.shouldShow.next(false);
+        }, (error) => {
+            this.errorService.showError(error);
+            this.router.navigate(['login']);
+            this.loaderService.shouldShow.next(false);
         });
-    };
-    return LoginComponent;
-}());
+    }
+};
 LoginComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["o" /* Component */])({
         selector: 'app-login',
@@ -698,12 +676,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-var NavbarComponent = (function () {
-    function NavbarComponent() {
+let NavbarComponent = class NavbarComponent {
+    ngOnInit() {
         this.navItems = [
             {
                 state: '',
@@ -711,15 +686,13 @@ var NavbarComponent = (function () {
             }
         ];
     }
-    return NavbarComponent;
-}());
+};
 NavbarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-navbar',
         template: __webpack_require__("../../../../../client/app/components/navbar/navbar.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/navbar/navbar.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], NavbarComponent);
 
 //# sourceMappingURL=navbar.component.js.map
@@ -779,18 +752,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProjectDetailComponent = (function () {
-    function ProjectDetailComponent(route, projectService, headerService, errorService, loaderService, location) {
+let ProjectDetailComponent = class ProjectDetailComponent {
+    constructor(route, projectService, headerService, errorService, loaderService, location) {
         this.route = route;
         this.projectService = projectService;
         this.headerService = headerService;
         this.errorService = errorService;
         this.loaderService = loaderService;
         this.location = location;
-        this.getProject();
     }
-    ProjectDetailComponent.prototype.getTechnologyBadge = function (name) {
-        var imageSource;
+    getProject() {
+        this.loaderService.shouldShow.next(true);
+        this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
+            .subscribe((project) => {
+            this.headerService.showHeader.next(false);
+            this.loaderService.shouldShow.next(false);
+            this.project = project;
+        }, (error) => {
+            this.errorService.showError(error);
+            this.loaderService.shouldShow.next(false);
+        });
+    }
+    getTechnologyBadge(name) {
+        let imageSource;
         switch (name) {
             case 'Angular':
                 imageSource = 'assets/images/angular.png';
@@ -823,31 +807,20 @@ var ProjectDetailComponent = (function () {
                 break;
         }
         return imageSource;
-    };
-    ProjectDetailComponent.prototype.getClassName = function (label) {
+    }
+    getClassName(label) {
         if (!label) {
             return;
         }
         return label.toLowerCase();
-    };
-    ProjectDetailComponent.prototype.goBack = function () {
+    }
+    goBack() {
         this.location.back();
-    };
-    ProjectDetailComponent.prototype.getProject = function () {
-        var _this = this;
-        this.loaderService.shouldShow.next(true);
-        this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
-            .subscribe(function (project) {
-            _this.headerService.showHeader.next(false);
-            _this.loaderService.shouldShow.next(false);
-            _this.project = project;
-        }, function (error) {
-            _this.errorService.showError(error);
-            _this.loaderService.shouldShow.next(false);
-        });
-    };
-    return ProjectDetailComponent;
-}());
+    }
+    ngOnInit() {
+        this.getProject();
+    }
+};
 ProjectDetailComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["o" /* Component */])({
         selector: 'app-project-detail',
@@ -911,44 +884,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProjectComponent = (function () {
-    function ProjectComponent(projectService, headerService, errorService, loaderService) {
+let ProjectComponent = class ProjectComponent {
+    constructor(projectService, headerService, errorService, loaderService) {
         this.projectService = projectService;
         this.headerService = headerService;
         this.errorService = errorService;
         this.loaderService = loaderService;
     }
-    ProjectComponent.prototype.getClassName = function (label) {
+    getProjects() {
+        this.loaderService.shouldShow.next(true);
+        this.projectService.getProjects()
+            .subscribe(projects => {
+            this.projects = projects;
+            this.loaderService.shouldShow.next(false);
+        }, (error) => {
+            this.errorService.showError(error);
+            this.loaderService.shouldShow.next(false);
+        });
+    }
+    getClassName(label) {
         if (!label) {
             return;
         }
         return label.toLowerCase();
-    };
-    ProjectComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    }
+    ngOnInit() {
         this.getProjects();
-        setTimeout(function () { return _this.headerService.showHeader.next(true); });
-    };
-    ProjectComponent.prototype.getProjects = function () {
-        var _this = this;
-        this.loaderService.shouldShow.next(true);
-        this.projectService.getProjects()
-            .subscribe(function (projects) {
-            _this.projects = projects;
-            _this.loaderService.shouldShow.next(false);
-        }, function (error) {
-            _this.errorService.showError(error);
-            _this.loaderService.shouldShow.next(false);
-        });
-    };
-    return ProjectComponent;
-}());
+        setTimeout(() => this.headerService.showHeader.next(true));
+    }
+};
 ProjectComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["o" /* Component */])({
         selector: 'app-project',
         template: __webpack_require__("../../../../../client/app/components/project/project.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/project/project.component.scss")]
     }),
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _d || Object])
 ], ProjectComponent);
 
@@ -961,7 +932,6 @@ var _a, _b, _c, _d;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appRoutes; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_authentication_authentication_service__ = __webpack_require__("../../../../../client/app/services/authentication/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_login_login_component__ = __webpack_require__("../../../../../client/app/components/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_admin_admin_component__ = __webpack_require__("../../../../../client/app/components/admin/admin.component.ts");
@@ -972,13 +942,15 @@ var _a, _b, _c, _d;
 
 
 
-var appRoutes = [
+const appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_3__components_project_project_component__["a" /* ProjectComponent */] },
     { path: 'project/:id', component: __WEBPACK_IMPORTED_MODULE_4__components_project_detail_project_detail_component__["a" /* ProjectDetailComponent */] },
     { path: 'project/:id', component: __WEBPACK_IMPORTED_MODULE_4__components_project_detail_project_detail_component__["a" /* ProjectDetailComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__components_admin_admin_component__["a" /* AdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__services_authentication_authentication_service__["a" /* CheckAuthenticationService */]] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__components_login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_0__services_authentication_authentication_service__["a" /* CheckAuthenticationService */]] }
 ];
+/* harmony export (immutable) */ __webpack_exports__["a"] = appRoutes;
+
 //# sourceMappingURL=route.module.js.map
 
 /***/ }),
@@ -1007,40 +979,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CheckAuthenticationService = (function () {
-    function CheckAuthenticationService(router, http, errorService, cookieService) {
+let CheckAuthenticationService = class CheckAuthenticationService {
+    constructor(router, http, errorService, cookieService) {
         this.router = router;
         this.http = http;
         this.errorService = errorService;
         this.cookieService = cookieService;
     }
-    CheckAuthenticationService.prototype.canActivate = function () {
-        var _this = this;
+    canActivate() {
         this.checkToken()
-            .subscribe(function (data) {
-            _this.router.navigate(['admin']);
-        }, function (error) {
-            _this.router.navigate(['login']);
+            .subscribe((data) => {
+            this.router.navigate(['admin']);
+        }, (error) => {
+            this.router.navigate(['login']);
         });
         return true;
-    };
-    CheckAuthenticationService.prototype.login = function (details) {
+    }
+    login(details) {
         return this.http.post('/auth/login', details, { responseType: 'text' });
-    };
-    CheckAuthenticationService.prototype.checkToken = function () {
+    }
+    checkToken() {
         return this.http.get('/auth/checktoken', {
             responseType: 'text',
             headers: this.getHeaders()
         });
-    };
-    CheckAuthenticationService.prototype.getHeaders = function () {
+    }
+    getHeaders() {
         return new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["d" /* HttpHeaders */]().set('Authorization', this.getToken());
-    };
-    CheckAuthenticationService.prototype.getToken = function () {
+    }
+    getToken() {
         return 'basic ' + this.cookieService.get('auth-jack-thomson');
-    };
-    return CheckAuthenticationService;
-}());
+    }
+};
 CheckAuthenticationService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__error_error_service__["a" /* ErrorService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0_ngx_cookie_service__["a" /* CookieService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ngx_cookie_service__["a" /* CookieService */]) === "function" && _d || Object])
@@ -1065,21 +1035,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
-var DialogueService = (function () {
-    function DialogueService() {
+let DialogueService = class DialogueService {
+    constructor() {
         this.showDialogue = new __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__["Subject"]();
         this.reason = new __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__["Subject"]();
     }
-    return DialogueService;
-}());
+};
 DialogueService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [])
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])()
 ], DialogueService);
 
 //# sourceMappingURL=dialogue.service.js.map
@@ -1104,19 +1069,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var ErrorService = (function () {
-    function ErrorService(dialogueService) {
+let ErrorService = class ErrorService {
+    constructor(dialogueService) {
         this.dialogueService = dialogueService;
     }
-    ErrorService.prototype.showError = function (response) {
-        var user_message = '';
-        var parsedError = JSON.parse(response.error);
-        user_message = parsedError.user_message;
+    showError(response) {
+        let user_message = '';
+        let parsedError;
+        try {
+            JSON.parse(response.error);
+            parsedError = JSON.parse(response.error);
+            user_message = parsedError.user_message;
+        }
+        catch (e) {
+            parsedError = {
+                user_message: response.error,
+                dev_message: 'An error occured',
+                status: 404
+            };
+        }
         this.dialogueService.reason.next(user_message);
         this.dialogueService.showDialogue.next(true);
-    };
-    return ErrorService;
-}());
+    }
+};
 ErrorService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__dialogue_dialogue_service__["a" /* DialogueService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__dialogue_dialogue_service__["a" /* DialogueService */]) === "function" && _a || Object])
@@ -1141,20 +1116,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
-var HeaderService = (function () {
-    function HeaderService() {
+let HeaderService = class HeaderService {
+    constructor() {
         this.showHeader = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
     }
-    return HeaderService;
-}());
+};
 HeaderService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [])
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
 ], HeaderService);
 
 //# sourceMappingURL=header.service.js.map
@@ -1179,15 +1149,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var NoopInterceptor = (function () {
-    function NoopInterceptor(router) {
+let NoopInterceptor = class NoopInterceptor {
+    constructor(router) {
         this.router = router;
     }
-    NoopInterceptor.prototype.intercept = function (req, next) {
+    intercept(req, next) {
         return next.handle(req);
-    };
-    return NoopInterceptor;
-}());
+    }
+};
 NoopInterceptor = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
@@ -1217,12 +1186,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var LoaderService = (function () {
-    function LoaderService() {
+let LoaderService = class LoaderService {
+    constructor() {
         this.shouldShow = new __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__["Subject"]();
     }
-    return LoaderService;
-}());
+};
 LoaderService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
@@ -1254,26 +1222,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProjectService = (function () {
-    function ProjectService(http, cookieService, authenticationService) {
+let ProjectService = class ProjectService {
+    constructor(http, cookieService, authenticationService) {
         this.http = http;
         this.cookieService = cookieService;
         this.authenticationService = authenticationService;
         this.projectsResource = '/api/projects/';
     }
-    ProjectService.prototype.getProjects = function () {
+    getProjects() {
         return this.http.get(this.projectsResource);
-    };
-    ProjectService.prototype.getProject = function (projectId) {
+    }
+    getProject(projectId) {
         return this.http.get(this.projectsResource + projectId);
-    };
-    ProjectService.prototype.addProject = function (project) {
+    }
+    addProject(project) {
         return this.http.post(this.projectsResource, project, {
             headers: this.authenticationService.getHeaders()
         });
-    };
-    return ProjectService;
-}());
+    }
+};
 ProjectService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__authentication_authentication_service__["a" /* CheckAuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__authentication_authentication_service__["a" /* CheckAuthenticationService */]) === "function" && _c || Object])
@@ -1295,15 +1262,16 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPwAAADmCAYAAADx
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 // The file contents for the current environment will overwrite these during build.
-var environment = {
+const environment = {
     production: false
 };
+/* harmony export (immutable) */ __webpack_exports__["a"] = environment;
+
 //# sourceMappingURL=environment.js.map
 
 /***/ }),
@@ -1326,7 +1294,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])()
     .bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
-    .catch(function (err) { return console.log(err); });
+    .catch(err => console.log(err));
 //# sourceMappingURL=main.js.map
 
 /***/ }),

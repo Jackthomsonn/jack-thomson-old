@@ -4,7 +4,7 @@ import { ErrorService } from './../../../services/error/error.service';
 import { IProject } from './../../../interfaces/IProject';
 import { HeaderService } from './../../../services/header/header.service';
 import { ProjectService } from './../../../services/projects/project.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./project-detail.component.scss']
 })
 
-export class ProjectDetailComponent {
+export class ProjectDetailComponent implements OnInit {
   public project: IProject;
 
   constructor(
@@ -24,7 +24,20 @@ export class ProjectDetailComponent {
     private errorService: ErrorService,
     private loaderService: LoaderService,
     private location: Location) {
-    this.getProject();
+  }
+
+  private getProject() {
+    this.loaderService.shouldShow.next(true);
+
+    this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
+      .subscribe((project: IProject) => {
+        this.headerService.showHeader.next(false);
+        this.loaderService.shouldShow.next(false);
+        this.project = project;
+      }, (error: IErrorResponse) => {
+        this.errorService.showError(error);
+        this.loaderService.shouldShow.next(false);
+      });
   }
 
   public getTechnologyBadge(name: string) {
@@ -75,17 +88,7 @@ export class ProjectDetailComponent {
     this.location.back();
   }
 
-  private getProject() {
-    this.loaderService.shouldShow.next(true);
-
-    this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
-      .subscribe((project: IProject) => {
-        this.headerService.showHeader.next(false);
-        this.loaderService.shouldShow.next(false);
-        this.project = project;
-      }, (error: IErrorResponse) => {
-        this.errorService.showError(error);
-        this.loaderService.shouldShow.next(false);
-      });
+  public ngOnInit() {
+    this.getProject();
   }
 }

@@ -4,7 +4,7 @@ import { ErrorService } from './../../services/error/error.service';
 import { IProject } from './../../interfaces/IProject';
 import { HeaderService } from './../../services/header/header.service';
 import { ProjectService } from './../../services/projects/project.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-project',
@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project.component.scss']
 })
 
+@Injectable()
 export class ProjectComponent implements OnInit {
   public projects: Array<IProject>;
 
@@ -20,17 +21,6 @@ export class ProjectComponent implements OnInit {
     private headerService: HeaderService,
     private errorService: ErrorService,
     private loaderService: LoaderService) {
-  }
-
-  public getClassName(label: string) {
-    if (!label) { return; }
-
-    return label.toLowerCase();
-  }
-
-  public ngOnInit() {
-    this.getProjects();
-    setTimeout(() => this.headerService.showHeader.next(true));
   }
 
   private getProjects() {
@@ -44,5 +34,16 @@ export class ProjectComponent implements OnInit {
         this.errorService.showError(error);
         this.loaderService.shouldShow.next(false);
       });
+  }
+
+  public getClassName(label: string) {
+    if (!label) { return; }
+
+    return label.toLowerCase();
+  }
+
+  public ngOnInit() {
+    this.getProjects();
+    setTimeout(() => this.headerService.showHeader.next(true));
   }
 }

@@ -5,7 +5,6 @@ import { ErrorService } from './../../services/error/error.service';
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
@@ -21,7 +20,8 @@ export class LoginComponent {
     private authenticationService: CheckAuthenticationService,
     private router: Router,
     private errorService: ErrorService,
-    private loaderService: LoaderService) { }
+    private loaderService: LoaderService) {
+  }
 
   public login() {
     this.loaderService.shouldShow.next(true);
