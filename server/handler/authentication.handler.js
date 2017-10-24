@@ -8,10 +8,21 @@ const checkAuthentication = (req, res, next) => {
     const bearer = bearerHeader.split(" ")
 
     req.token = bearer[1]
-    next()
+
+    jwt.verify(req.token, env.AUTH_SECRET_KEY, (err, data) => {
+      if (err) {
+        res.status(403).send({
+          user_message: 'User is forbidden to make that request',
+          dev_message: 'forbidden',
+          status: 403
+        })
+      } else {
+        next();
+      }
+    })
   } else {
     res.status(403).send({
-      user_message: 'User is forbidden to make that request',
+      user_message: 'No authorization header was supplied with this request',
       dev_message: 'forbidden',
       status: 403
     })
