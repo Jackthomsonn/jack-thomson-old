@@ -27,7 +27,9 @@ router.post('/login', (req, res, next) => {
     if (user) {
       user.comparePassword(password, (err, isMatch) => {
         if (isMatch) {
-          res.cookie('auth-jack-thomson', authenticationHandler.signToken(user))
+          res.cookie('auth-jack-thomson', authenticationHandler.signToken(user), {
+            maxAge: 3600000
+          })
           res.status(200).send()
 
           if (env.NODE_ENV === 'development') {
