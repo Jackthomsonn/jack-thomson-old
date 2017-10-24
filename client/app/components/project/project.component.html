@@ -1,6 +1,6 @@
 <section class='container'>
   <div class='grid'>
-    <div class='flex-3 card' *ngFor="let project of projects">
+    <div class='flex-3 card' *ngFor='let project of projects'>
       <div class='card_image'>
         <img src="{{project.imageLocation}}" />
       </div>
@@ -14,5 +14,6 @@
         <a target="_blank" href="{{project.url}}"><button>View project</button></a>
       </div>
     </div>
+    <app-paginator perPageCount='2' class='flex-12'></app-paginator>
   </div>
 </section>

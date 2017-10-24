@@ -89,30 +89,32 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_cookie_service__ = __webpack_require__("../../../../ngx-cookie-service/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_dialogue_dialogue_service__ = __webpack_require__("../../../../../client/app/services/dialogue/dialogue.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_dialogue_dialogue_component__ = __webpack_require__("../../../../../client/app/components/dialogue/dialogue.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_loader_loader_component__ = __webpack_require__("../../../../../client/app/components/loader/loader.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_authentication_authentication_service__ = __webpack_require__("../../../../../client/app/services/authentication/authentication.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__ = __webpack_require__("../../../../../client/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_httpIntercept_http_intercept_service__ = __webpack_require__("../../../../../client/app/services/httpIntercept/http-intercept.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_admin_admin_component__ = __webpack_require__("../../../../../client/app/components/admin/admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__route_module__ = __webpack_require__("../../../../../client/app/route.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_navbar_navbar_component__ = __webpack_require__("../../../../../client/app/components/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_project_detail_project_detail_component__ = __webpack_require__("../../../../../client/app/components/project/detail/project-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__ = __webpack_require__("../../../../../client/app/components/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_project_project_component__ = __webpack_require__("../../../../../client/app/components/project/project.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_header_header_component__ = __webpack_require__("../../../../../client/app/components/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__app_component__ = __webpack_require__("../../../../../client/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_paginator_paginator_component__ = __webpack_require__("../../../../../client/app/components/paginator/paginator.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_paginator_paginator_service__ = __webpack_require__("../../../../../client/app/services/paginator/paginator.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__ = __webpack_require__("../../../../ngx-cookie-service/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_dialogue_dialogue_service__ = __webpack_require__("../../../../../client/app/services/dialogue/dialogue.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_dialogue_dialogue_component__ = __webpack_require__("../../../../../client/app/components/dialogue/dialogue.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_component__ = __webpack_require__("../../../../../client/app/components/loader/loader.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_authentication_authentication_service__ = __webpack_require__("../../../../../client/app/services/authentication/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__ = __webpack_require__("../../../../../client/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_httpIntercept_http_intercept_service__ = __webpack_require__("../../../../../client/app/services/httpIntercept/http-intercept.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_admin_admin_component__ = __webpack_require__("../../../../../client/app/components/admin/admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__route_module__ = __webpack_require__("../../../../../client/app/route.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_navbar_navbar_component__ = __webpack_require__("../../../../../client/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_project_detail_project_detail_component__ = __webpack_require__("../../../../../client/app/components/project/detail/project-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_footer_footer_component__ = __webpack_require__("../../../../../client/app/components/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_project_project_component__ = __webpack_require__("../../../../../client/app/components/project/project.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_header_header_component__ = __webpack_require__("../../../../../client/app/components/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__app_component__ = __webpack_require__("../../../../../client/app/app.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -148,8 +150,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-if (!Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_27" /* isDevMode */])()) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
+
+
+if (!Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_27" /* isDevMode */])()) {
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_23" /* enableProdMode */])();
 }
 let AppModule = class AppModule {
     constructor(titleService) {
@@ -158,42 +162,44 @@ let AppModule = class AppModule {
     }
 };
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_23__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_project_project_component__["a" /* ProjectComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_project_detail_project_detail_component__["a" /* ProjectDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_admin_admin_component__["a" /* AdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__components_loader_loader_component__["a" /* LoaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_3__components_dialogue_dialogue_component__["a" /* DialogueComponent */]
+            __WEBPACK_IMPORTED_MODULE_25__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_project_project_component__["a" /* ProjectComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_project_detail_project_detail_component__["a" /* ProjectDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_admin_admin_component__["a" /* AdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_component__["a" /* LoaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__components_dialogue_dialogue_component__["a" /* DialogueComponent */],
+            __WEBPACK_IMPORTED_MODULE_0__components_paginator_paginator_component__["a" /* PaginatorComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_22__angular_common_http__["c" /* HttpClientModule */],
-            __WEBPACK_IMPORTED_MODULE_21__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_20__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__route_module__["a" /* appRoutes */]),
+            __WEBPACK_IMPORTED_MODULE_21__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_24__angular_common_http__["c" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_23__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_22__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_13__route_module__["a" /* appRoutes */]),
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_16__services_projects_project_service__["a" /* ProjectService */],
-            __WEBPACK_IMPORTED_MODULE_14__services_header_header_service__["a" /* HeaderService */],
-            __WEBPACK_IMPORTED_MODULE_9__services_loader_loader_service_service__["a" /* LoaderService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_authentication_authentication_service__["a" /* CheckAuthenticationService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_error_error_service__["a" /* ErrorService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_dialogue_dialogue_service__["a" /* DialogueService */],
-            __WEBPACK_IMPORTED_MODULE_1_ngx_cookie_service__["a" /* CookieService */],
+            __WEBPACK_IMPORTED_MODULE_18__services_projects_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_16__services_header_header_service__["a" /* HeaderService */],
+            __WEBPACK_IMPORTED_MODULE_11__services_loader_loader_service_service__["a" /* LoaderService */],
+            __WEBPACK_IMPORTED_MODULE_8__services_authentication_authentication_service__["a" /* CheckAuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_error_error_service__["a" /* ErrorService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_dialogue_dialogue_service__["a" /* DialogueService */],
+            __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */],
+            __WEBPACK_IMPORTED_MODULE_1__services_paginator_paginator_service__["a" /* PaginatorService */],
             {
-                provide: __WEBPACK_IMPORTED_MODULE_22__angular_common_http__["a" /* HTTP_INTERCEPTORS */],
-                useClass: __WEBPACK_IMPORTED_MODULE_8__services_httpIntercept_http_intercept_service__["a" /* NoopInterceptor */],
+                provide: __WEBPACK_IMPORTED_MODULE_24__angular_common_http__["a" /* HTTP_INTERCEPTORS */],
+                useClass: __WEBPACK_IMPORTED_MODULE_10__services_httpIntercept_http_intercept_service__["a" /* NoopInterceptor */],
                 multi: true,
             }
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_23__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_25__app_component__["a" /* AppComponent */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__["d" /* Title */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_21__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_21__angular_platform_browser__["d" /* Title */]) === "function" && _a || Object])
 ], AppModule);
 
 var _a;
@@ -709,6 +715,119 @@ NavbarComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../client/app/components/paginator/paginator.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul *ngIf='pages && pages.length > 1'>\n  <li *ngFor='let page of pages; let i = index' (click)='updatePageNumber(i)' [ngClass]=\"{'active': currentPage === page}\">\n    {{ i + 1 }}\n  </li>\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../client/app/components/paginator/paginator.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,700);", ""]);
+
+// module
+exports.push([module.i, ":host > ul {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start; }\n  :host > ul > li {\n    list-style: none;\n    padding: .5em;\n    border: 1px solid #E24269;\n    width: 3em;\n    height: 3em;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    cursor: pointer;\n    border-radius: .2em;\n    margin: 0 1em; }\n    :host > ul > li:first-of-type {\n      margin-left: 0; }\n    :host > ul > li:hover, :host > ul > li.active {\n      background: #E24269;\n      color: #FFF; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../client/app/components/paginator/paginator.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginatorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__ = __webpack_require__("../../../../../client/app/services/paginator/paginator.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+let PaginatorComponent = class PaginatorComponent {
+    constructor(loaderService, errorService, projectService, paginatorService) {
+        this.loaderService = loaderService;
+        this.errorService = errorService;
+        this.projectService = projectService;
+        this.paginatorService = paginatorService;
+        this.currentPage = 1;
+    }
+    getProjectsLength() {
+        this.projectService.getProjects()
+            .subscribe(projects => {
+            this.totalCount = projects.length;
+            this.pages = this.range(1, Math.ceil(projects.length / this.perPageCount));
+        });
+    }
+    range(start, end) {
+        const range = [];
+        for (let i = start; i <= end; i++) {
+            range.push(i);
+        }
+        return range;
+    }
+    getProjects() {
+        this.loaderService.shouldShow.next(true);
+        this.projectService.getProjects(this.perPageCount, this.offset)
+            .subscribe(projects => {
+            this.paginatorService.data.next(projects);
+            this.loaderService.shouldShow.next(false);
+        }, (error) => {
+            this.errorService.showError(error);
+            this.loaderService.shouldShow.next(false);
+        });
+    }
+    updatePageNumber(pageNumber) {
+        this.currentPage = pageNumber + 1;
+        this.offset = (pageNumber) * this.perPageCount;
+        this.getProjects();
+    }
+    ngOnInit() {
+        if (!this.totalCount) {
+            this.getProjectsLength();
+        }
+        this.getProjects();
+    }
+};
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Number)
+], PaginatorComponent.prototype, "perPageCount", void 0);
+PaginatorComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["o" /* Component */])({
+        selector: 'app-paginator',
+        template: __webpack_require__("../../../../../client/app/components/paginator/paginator.component.html"),
+        styles: [__webpack_require__("../../../../../client/app/components/paginator/paginator.component.scss")],
+    }),
+    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_projects_project_service__["a" /* ProjectService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__["a" /* PaginatorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__["a" /* PaginatorService */]) === "function" && _d || Object])
+], PaginatorComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=paginator.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../client/app/components/project/detail/project-detail.component.html":
 /***/ (function(module, exports) {
 
@@ -861,7 +980,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h;
 /***/ "../../../../../client/app/components/project/project.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-3 card' *ngFor=\"let project of projects\">\n      <div class='card_image'>\n        <img src=\"{{project.imageLocation}}\" />\n      </div>\n      <div class='card_body'>\n        <h1>{{ project.title }}</h1>\n        <label class='{{getClassName(project.label)}}'>{{ project.label }}</label>\n        <p>{{ project.information }}</p>\n      </div>\n      <div class='card_actions'>\n        <button class=\"active\" routerLink=\"/project/{{project._id}}\">Find out more</button>\n        <a target=\"_blank\" href=\"{{project.url}}\"><button>View project</button></a>\n      </div>\n    </div>\n  </div>\n</section>"
+module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-3 card' *ngFor='let project of projects'>\n      <div class='card_image'>\n        <img src=\"{{project.imageLocation}}\" />\n      </div>\n      <div class='card_body'>\n        <h1>{{ project.title }}</h1>\n        <label class='{{getClassName(project.label)}}'>{{ project.label }}</label>\n        <p>{{ project.information }}</p>\n      </div>\n      <div class='card_actions'>\n        <button class=\"active\" routerLink=\"/project/{{project._id}}\">Find out more</button>\n        <a target=\"_blank\" href=\"{{project.url}}\"><button>View project</button></a>\n      </div>\n    </div>\n    <app-paginator perPageCount='2' class='flex-12'></app-paginator>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -888,11 +1007,12 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__ = __webpack_require__("../../../../../client/app/services/paginator/paginator.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -907,17 +1027,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 let ProjectComponent = class ProjectComponent {
-    constructor(projectService, headerService, errorService, loaderService) {
+    constructor(projectService, headerService, errorService, loaderService, paginatorService) {
         this.projectService = projectService;
         this.headerService = headerService;
         this.errorService = errorService;
         this.loaderService = loaderService;
+        this.paginatorService = paginatorService;
     }
     getProjects() {
         this.loaderService.shouldShow.next(true);
-        this.projectService.getProjects()
-            .subscribe(projects => {
+        this.paginatorService.data.subscribe((projects) => {
             this.projects = projects;
             this.loaderService.shouldShow.next(false);
         }, (error) => {
@@ -937,16 +1058,16 @@ let ProjectComponent = class ProjectComponent {
     }
 };
 ProjectComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["o" /* Component */])({
         selector: 'app-project',
         template: __webpack_require__("../../../../../client/app/components/project/project.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/project/project.component.scss")]
     }),
-    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _d || Object])
+    Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__["a" /* ProjectService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__["a" /* HeaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__["a" /* HeaderService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__["a" /* PaginatorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_paginator_paginator_service__["a" /* PaginatorService */]) === "function" && _e || Object])
 ], ProjectComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=project.component.js.map
 
 /***/ }),
@@ -1223,6 +1344,39 @@ LoaderService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../client/app/services/paginator/paginator.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginatorService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+let PaginatorService = class PaginatorService {
+    constructor() {
+        this.data = new __WEBPACK_IMPORTED_MODULE_0_rxjs_Subject__["Subject"]();
+    }
+};
+PaginatorService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], PaginatorService);
+
+//# sourceMappingURL=paginator.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../client/app/services/projects/project.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1252,8 +1406,8 @@ let ProjectService = class ProjectService {
         this.authenticationService = authenticationService;
         this.projectsResource = '/api/projects/';
     }
-    getProjects() {
-        return this.http.get(this.projectsResource);
+    getProjects(perPageCount, offset) {
+        return this.http.get(this.projectsResource + `?limit=${perPageCount}&skip=${offset}`);
     }
     getProject(projectId) {
         return this.http.get(this.projectsResource + projectId);

@@ -1,3 +1,4 @@
+import { PaginatorService } from './../../services/paginator/paginator.service';
 import { IErrorResponse } from './../../interfaces/IErrorResponse';
 import { LoaderService } from './../../services/loader/loader-service.service';
 import { ErrorService } from './../../services/error/error.service';
@@ -20,20 +21,20 @@ export class ProjectComponent implements OnInit {
     private projectService: ProjectService,
     private headerService: HeaderService,
     private errorService: ErrorService,
-    private loaderService: LoaderService) {
+    private loaderService: LoaderService,
+    private paginatorService: PaginatorService) {
   }
 
   private getProjects() {
     this.loaderService.shouldShow.next(true);
 
-    this.projectService.getProjects()
-      .subscribe(projects => {
-        this.projects = projects;
-        this.loaderService.shouldShow.next(false);
-      }, (error: IErrorResponse) => {
-        this.errorService.showError(error);
-        this.loaderService.shouldShow.next(false);
-      });
+    this.paginatorService.data.subscribe((projects) => {
+      this.projects = projects;
+      this.loaderService.shouldShow.next(false);
+    }, (error: IErrorResponse) => {
+      this.errorService.showError(error);
+      this.loaderService.shouldShow.next(false);
+    });
   }
 
   public getClassName(label: string) {

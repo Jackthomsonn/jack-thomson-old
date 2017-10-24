@@ -16,8 +16,8 @@ export class ProjectService {
     this.projectsResource = '/api/projects/';
   }
 
-  public getProjects(): Observable<any> {
-    return this.http.get(this.projectsResource);
+  public getProjects(perPageCount?: number, offset?: number): Observable<any> {
+    return this.http.get(this.projectsResource + `?limit=${perPageCount}&skip=${offset}`);
   }
 
   public getProject(projectId: string): Observable<any> {

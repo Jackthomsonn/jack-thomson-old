@@ -1,3 +1,5 @@
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { PaginatorService } from './services/paginator/paginator.service';
 import { enableProdMode, isDevMode } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { DialogueService } from './services/dialogue/dialogue.service';
@@ -40,7 +42,8 @@ if (!isDevMode()) {
     AdminComponent,
     LoginComponent,
     LoaderComponent,
-    DialogueComponent
+    DialogueComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ if (!isDevMode()) {
     ErrorService,
     DialogueService,
     CookieService,
+    PaginatorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,

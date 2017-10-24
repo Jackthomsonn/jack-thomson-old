@@ -1,0 +1,5 @@
+<ul *ngIf='pages && pages.length > 1'>
+  <li *ngFor='let page of pages; let i = index' (click)='updatePageNumber(i)' [ngClass]="{'active': currentPage === page}">
+    {{ i + 1 }}
+  </li>
+</ul>
