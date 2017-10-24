@@ -64,16 +64,20 @@ describe('Project Component', () => {
       const projectService = TestBed.get(ProjectService);
 
       spyOn(projectService, 'getProject').and.returnValue(Observable.of({
-        name: 'Test',
-        image: 'test-image'
+        title: 'Test',
+        information: 'Test Project',
+        image: 'test-image',
+        technologies: ['Angular', 'Node.js', 'Socket.io']
       }));
       comp.ngOnInit();
     });
 
     it('should get the passed in project', async(() => {
       expect(comp.project).toEqual({
-        name: 'Test',
-        image: 'test-image'
+        title: 'Test',
+        information: 'Test Project',
+        image: 'test-image',
+        technologies: ['Angular', 'Node.js', 'Socket.io']
       });
     }));
   });

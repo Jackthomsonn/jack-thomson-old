@@ -1,3 +1,4 @@
+import { Title, Meta } from '@angular/platform-browser';
 import { IErrorResponse } from './../../../interfaces/IErrorResponse';
 import { LoaderService } from './../../../services/loader/loader-service.service';
 import { ErrorService } from './../../../services/error/error.service';
@@ -23,7 +24,9 @@ export class ProjectDetailComponent implements OnInit {
     private headerService: HeaderService,
     private errorService: ErrorService,
     private loaderService: LoaderService,
-    private location: Location) {
+    private location: Location,
+    private titleService: Title,
+    private meta: Meta) {
   }
 
   private getProject() {
@@ -31,6 +34,15 @@ export class ProjectDetailComponent implements OnInit {
 
     this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
       .subscribe((project: IProject) => {
+        this.titleService.setTitle(`Jack Thomson | ${project.title}`);
+        this.meta.addTag({
+          name: 'description',
+          content: `${project.information}`
+        });
+        this.meta.addTag({
+          name: 'keywords',
+          content: `${project.title},${project.technologies.toString()}`
+        });
         this.headerService.showHeader.next(false);
         this.loaderService.shouldShow.next(false);
         this.project = project;

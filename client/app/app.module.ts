@@ -22,6 +22,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 if (!isDevMode()) {
@@ -66,4 +67,8 @@ if (!isDevMode()) {
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor(private titleService: Title) {
+    titleService.setTitle('Jack Thomson | A stylishly creative Frontend Web Developer');
+  }
+}

@@ -119,6 +119,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
@@ -148,6 +152,10 @@ if (!Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_27" /* isDevMode */])(
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
 let AppModule = class AppModule {
+    constructor(titleService) {
+        this.titleService = titleService;
+        titleService.setTitle('Jack Thomson | A stylishly creative Frontend Web Developer');
+    }
 };
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
@@ -184,9 +192,11 @@ AppModule = __decorate([
             }
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_23__app_component__["a" /* AppComponent */]]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_19__angular_platform_browser__["d" /* Title */]) === "function" && _a || Object])
 ], AppModule);
 
+var _a;
 //# sourceMappingURL=app.module.js.map
 
 /***/ }),
@@ -729,13 +739,14 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectDetailComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__ = __webpack_require__("../../../../../client/app/services/loader/loader-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__ = __webpack_require__("../../../../../client/app/services/error/error.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__ = __webpack_require__("../../../../../client/app/services/header/header.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__ = __webpack_require__("../../../../../client/app/services/projects/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -752,19 +763,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 let ProjectDetailComponent = class ProjectDetailComponent {
-    constructor(route, projectService, headerService, errorService, loaderService, location) {
+    constructor(route, projectService, headerService, errorService, loaderService, location, titleService, meta) {
         this.route = route;
         this.projectService = projectService;
         this.headerService = headerService;
         this.errorService = errorService;
         this.loaderService = loaderService;
         this.location = location;
+        this.titleService = titleService;
+        this.meta = meta;
     }
     getProject() {
         this.loaderService.shouldShow.next(true);
         this.projectService.getProject(this.route.snapshot.paramMap.get('id'))
             .subscribe((project) => {
+            this.titleService.setTitle(`Jack Thomson | ${project.title}`);
+            this.meta.addTag({
+                name: 'description',
+                content: `${project.information}`
+            });
+            this.meta.addTag({
+                name: 'keywords',
+                content: `${project.title},${project.technologies.toString()}`
+            });
             this.headerService.showHeader.next(false);
             this.loaderService.shouldShow.next(false);
             this.project = project;
@@ -822,15 +845,15 @@ let ProjectDetailComponent = class ProjectDetailComponent {
     }
 };
 ProjectDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["o" /* Component */])({
         selector: 'app-project-detail',
         template: __webpack_require__("../../../../../client/app/components/project/detail/project-detail.component.html"),
         styles: [__webpack_require__("../../../../../client/app/components/project/detail/project-detail.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_projects_project_service__["a" /* ProjectService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_header_header_service__["a" /* HeaderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_error_error_service__["a" /* ErrorService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_projects_project_service__["a" /* ProjectService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__["a" /* HeaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_header_header_service__["a" /* HeaderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_error_error_service__["a" /* ErrorService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_loader_loader_service_service__["a" /* LoaderService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_common__["f" /* Location */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["d" /* Title */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["c" /* Meta */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["c" /* Meta */]) === "function" && _h || Object])
 ], ProjectDetailComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=project-detail.component.js.map
 
 /***/ }),
