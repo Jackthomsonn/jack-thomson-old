@@ -980,7 +980,7 @@ var _a, _b, _c, _d, _e, _f, _g, _h;
 /***/ "../../../../../client/app/components/project/project.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-3 card' *ngFor='let project of projects'>\n      <div class='card_image'>\n        <img src=\"{{project.imageLocation}}\" />\n      </div>\n      <div class='card_body'>\n        <h1>{{ project.title }}</h1>\n        <label class='{{getClassName(project.label)}}'>{{ project.label }}</label>\n        <p>{{ project.information }}</p>\n      </div>\n      <div class='card_actions'>\n        <button class=\"active\" routerLink=\"/project/{{project._id}}\">Find out more</button>\n        <a target=\"_blank\" href=\"{{project.url}}\"><button>View project</button></a>\n      </div>\n    </div>\n    <app-paginator perPageCount='2' class='flex-12'></app-paginator>\n  </div>\n</section>"
+module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-3 card' *ngFor='let project of projects'>\n      <div class='card_image'>\n        <img src=\"{{project.imageLocation}}\" />\n      </div>\n      <div class='card_body'>\n        <h1>{{ project.title }}</h1>\n        <label class='{{getClassName(project.label)}}'>{{ project.label }}</label>\n        <p>{{ project.information }}</p>\n      </div>\n      <div class='card_actions'>\n        <button class=\"active\" routerLink=\"/project/{{project._id}}\">Find out more</button>\n        <a target=\"_blank\" href=\"{{project.url}}\"><button>View project</button></a>\n      </div>\n    </div>\n    <app-paginator perPageCount='6' class='flex-12'></app-paginator>\n  </div>\n</section>"
 
 /***/ }),
 
