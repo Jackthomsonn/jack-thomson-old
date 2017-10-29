@@ -29,7 +29,7 @@ export class ProjectComponent implements OnInit {
     this.loaderService.shouldShow.next(true);
 
     this.paginatorService.data.subscribe((projects) => {
-      this.projects = projects;
+      this.projects = projects.reverse();
       this.loaderService.shouldShow.next(false);
     }, (error: IErrorResponse) => {
       this.errorService.showError(error);

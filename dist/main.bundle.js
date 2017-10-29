@@ -152,9 +152,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-if (!Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_27" /* isDevMode */])()) {
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_23" /* enableProdMode */])();
-}
+Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_23" /* enableProdMode */])();
 let AppModule = class AppModule {
     constructor(titleService) {
         this.titleService = titleService;
@@ -1039,7 +1037,7 @@ let ProjectComponent = class ProjectComponent {
     getProjects() {
         this.loaderService.shouldShow.next(true);
         this.paginatorService.data.subscribe((projects) => {
-            this.projects = projects;
+            this.projects = projects.reverse();
             this.loaderService.shouldShow.next(false);
         }, (error) => {
             this.errorService.showError(error);

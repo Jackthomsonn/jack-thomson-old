@@ -1,6 +1,6 @@
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { PaginatorService } from './services/paginator/paginator.service';
-import { enableProdMode, isDevMode } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { DialogueService } from './services/dialogue/dialogue.service';
 import { DialogueComponent } from './components/dialogue/dialogue.component';
@@ -27,9 +27,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
-if (!isDevMode()) {
-  enableProdMode();
-}
+enableProdMode();
 
 @NgModule({
   declarations: [
