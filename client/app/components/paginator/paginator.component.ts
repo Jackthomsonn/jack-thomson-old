@@ -41,6 +41,7 @@ export class PaginatorComponent implements OnInit {
     for (let i = start; i <= end; i++) {
       range.push(i);
     }
+
     return range;
   }
 

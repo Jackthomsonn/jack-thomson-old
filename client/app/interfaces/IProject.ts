@@ -6,4 +6,6 @@ export interface IProject {
   image: string;
   label: string;
   url: string;
+  imageLocation?: string;
+  _id?: string;
 }

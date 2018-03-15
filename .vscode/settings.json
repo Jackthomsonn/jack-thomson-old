@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        ".angular-cli.json": true,
+        "protractor.conf.js": true,
+        "karma.conf.js": true
+
+    }
+}
