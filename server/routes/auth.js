@@ -47,18 +47,6 @@ router.post('/login', (req, res, next) => {
   })
 })
 
-router.get('/checktoken', authenticationHandler.checkAuthentication, (req, res) => {
-  jwt.verify(req.token, env.AUTH_SECRET_KEY, (err, data) => {
-    if (err) {
-      res.status(403).send({
-        user_message: 'User is forbidden to make that request',
-        dev_message: 'forbidden',
-        status: 403
-      })
-    } else {
-      return res.status(200).send()
-    }
-  })
-})
+router.get('/checktoken', authenticationHandler.checkAuthentication)
 
 module.exports = router
