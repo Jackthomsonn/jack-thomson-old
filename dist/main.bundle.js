@@ -399,7 +399,7 @@ var _a;
 /***/ "../../../../../client/app/components/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-12'>\n      <p>&copy; Copyright 2015 - 2017 - Jackthomson.co.uk</p>\n    </div>\n  </div>\n</section>"
+module.exports = "<section class='container'>\n  <div class='grid'>\n    <div class='flex-12'>\n      <p>&copy; Copyright 2015 - 2018 - Jackthomson.co.uk</p>\n    </div>\n  </div>\n</section>"
 
 /***/ }),
 
