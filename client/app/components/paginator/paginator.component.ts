@@ -28,7 +28,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   private getProjectsLength() {
-    this.projectService.getProjects()
+    this.projectService.getProjects(undefined, undefined)
       .subscribe(projects => {
         this.totalCount = projects.length;
         this.pages = this.range(1, Math.ceil(projects.length / this.perPageCount));

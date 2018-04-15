@@ -772,7 +772,7 @@ let PaginatorComponent = class PaginatorComponent {
         this.currentPage = 1;
     }
     getProjectsLength() {
-        this.projectService.getProjects()
+        this.projectService.getProjects(undefined, undefined)
             .subscribe(projects => {
             this.totalCount = projects.length;
             this.pages = this.range(1, Math.ceil(projects.length / this.perPageCount));
