@@ -8,7 +8,7 @@ const env = require('./env')
 const application = {
   instantiateApplicationDefaults: (app) => {
     mongoose.Promise = global.Promise
-    mongoose.connect('mongodb://' + env.MONGOURI + '/jack-thomson/')
+    mongoose.connect('mongodb://' + env.MONGOURI + '/jack-thomson', { useMongoClient: true })
 
     app.use(bodyParser.json({ limit: '50mb' }))
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }))
