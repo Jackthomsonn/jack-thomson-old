@@ -25,7 +25,18 @@ export class AdminComponent {
     url: ''
   };
 
-  public technologies: Array<string> = ['Angular', 'Node', 'Typescript', 'MongoDB', 'Socket.io', 'PHP', 'CSS3', 'HTML5', 'Javascript'];
+  public technologies: Array<string> = [
+    'Angular',
+    'Node',
+    'Typescript',
+    'MongoDB',
+    'Socket.io',
+    'PHP',
+    'CSS3',
+    'HTML5',
+    'Javascript',
+    'Ionic'
+  ];
 
   constructor(
     private projectService: ProjectService,

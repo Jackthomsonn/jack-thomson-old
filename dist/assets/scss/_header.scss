@@ -2,7 +2,13 @@
 @import "./_buttons";
 
 .header {
-  background: map-get($theme, "primary") url('../../../assets/images/bg.png') repeat;
+  background: linear-gradient(
+    rgba(226, 66, 105, 0.9), 
+    rgba(156, 66, 105, 0.9)
+  ),
+  /* bottom, image */
+  url(https://www.toptal.com/designers/subtlepatterns/patterns/darkness.png);
+  background-size: cover;
   box-shadow: map-get($theme, "box-shadow");
   width: 100vw;
   display: block;
@@ -19,6 +25,7 @@
     align-items: center;
     height: 100%;
     margin-top: 5vh;
+    position: relative;
 
     & > h1 {
       width: 75vw;
@@ -36,6 +43,24 @@
 
       & > button, & > a > button {
         @extend .header-button;
+      }
+    }
+    
+    & > .footer {
+      display: flex;
+      justify-content: space-evenly;
+      position: absolute;
+      bottom: 20px;
+      width: 30vw;
+
+      & > div {
+        padding: 12px;
+
+        & > img {
+          width: auto;
+          height: 30px;
+          opacity: 0.5;
+        }
       }
     }
   }

@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,700);", ""]);
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml, body {\n  font-size: 9px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 300;\n  background: #F7F7F7;\n  z-index: 1; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml, body {\n  font-size: 9px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 300;\n  background: #FFF;\n  z-index: 1; }\n", ""]);
 
 // exports
 

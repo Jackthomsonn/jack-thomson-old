@@ -83,6 +83,9 @@ export class ProjectDetailComponent implements OnInit {
       case 'Javascript':
         imageSource = 'assets/images/javascript.png';
         break;
+      case 'Ionic':
+        imageSource = 'assets/images/ionic.png';
+        break;
       default:
         break;
     }

@@ -83,49 +83,54 @@ describe('Project Component', () => {
   });
 
   describe('When the getTechnologyBadge method is called', () => {
-    describe('when I call the getTechnologyBadge method with a bade name of Angular', () => {
+    describe('when I call the getTechnologyBadge method with a base name of Angular', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('Angular')).toEqual('assets/images/angular.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of Node', () => {
+    describe('when I call the getTechnologyBadge method with a base name of Node', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('Node')).toEqual('assets/images/node-js.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of Typescript', () => {
+    describe('when I call the getTechnologyBadge method with a base name of Typescript', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('Typescript')).toEqual('assets/images/typescript.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of MongoDB', () => {
+    describe('when I call the getTechnologyBadge method with a base name of MongoDB', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('MongoDB')).toEqual('assets/images/mongo-db.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of Socket.io', () => {
+    describe('when I call the getTechnologyBadge method with a base name of Socket.io', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('Socket.io')).toEqual('assets/images/socket-io.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of PHP', () => {
+    describe('when I call the getTechnologyBadge method with a base name of PHP', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('PHP')).toEqual('assets/images/php.svg');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of HTMl5', () => {
+    describe('when I call the getTechnologyBadge method with a base name of HTMl5', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('HTML5')).toEqual('assets/images/html-5.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of CSS3', () => {
+    describe('when I call the getTechnologyBadge method with a base name of CSS3', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('CSS3')).toEqual('assets/images/css-3.png');
       });
     });
-    describe('when I call the getTechnologyBadge method with a bade name of Javascript', () => {
+    describe('when I call the getTechnologyBadge method with a base name of Javascript', () => {
       it('should return me the correct imageURI', () => {
         expect(comp.getTechnologyBadge('Javascript')).toEqual('assets/images/javascript.png');
+      });
+    });
+    describe('when I call the getTechnologyBadge method with a base name of Ionic', () => {
+      it('should return me the correct imageURI', () => {
+        expect(comp.getTechnologyBadge('Ionic')).toEqual('assets/images/ionic.png');
       });
     });
     describe('when I call with a badge name that doesnt exist', () => {
