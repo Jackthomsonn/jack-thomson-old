@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node server/index",
+    "start": "ng build && node server/index",
     "test": "ng test --code-coverage",
     "prod-tests": "ng test --watch=false",
     "lint": "ng lint",
