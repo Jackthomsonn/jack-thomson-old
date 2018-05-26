@@ -35,7 +35,8 @@ export class AdminComponent {
     'CSS3',
     'HTML5',
     'Javascript',
-    'Ionic'
+    'Ionic',
+    'Electron'
   ];
 
   constructor(
